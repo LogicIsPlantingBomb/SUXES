@@ -108,6 +108,7 @@ import {
 } from "@/components/ui/form"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 
+import Link from "next/link"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { OctagonAlertIcon } from "lucide-react"
@@ -137,12 +138,12 @@ export const SignInView = () => {
     }
 
     return (
-        <div className = "flex flex-col gap-7 w-[400px]">
+        <div className = "flex flex-col gap-5 w-[430px]">
             <Card className="overflow-hidden p-0 w-full" >
                 <CardContent className = "grid p-0 md:grid-cols-[3fr_2fr]" >
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className = "p-6 md:p-8">
-                            <div className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-4">
                                 <div className= "flex flex-col items-center text-center">
                                     <h1 className="text-xl font-bold">Welcome Back</h1>
                                     <p className="text-muted-foreground text-balance">
@@ -217,6 +218,15 @@ export const SignInView = () => {
                                             GitHub
                                         </Button>
                                     </div>
+                                    <div className= "text-muted-foreground text-[12px] flex flex-col justify-center items-center gap-1">
+                                        <p>
+                                            Don&apos;t have a account? 
+                                        </p>
+                                        <Link className="w-full" href = "/sign-up">
+                                            <Button className="w-full text[12px]">Sign-Up</Button>
+                                        </Link>
+                                        
+                                    </div>
                             </div>
                         </form>
                     </Form>
@@ -227,6 +237,7 @@ export const SignInView = () => {
                         </div>
                         
                     </div>
+
                 </CardContent>
             </Card>
         </div>

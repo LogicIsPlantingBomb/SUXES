@@ -14,6 +14,7 @@ import { OctagonAlertIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { FaGoogle, FaGithub } from "react-icons/fa"
 import { useState } from "react"
+import Link from "next/link"
 
 const formSchema = z.object({
     name: z.string().min(1, {message: "Name is required"}),
@@ -45,12 +46,12 @@ export const SignUpView = () => {
     }
 
     return (
-        <div className = "flex flex-col gap-6 w-[500px]">
+        <div className = "flex flex-col gap-6 w-[500px] ">
                 <Card className="overflow-hidden p-0 w-full" >
                     <CardContent className = "grid p-0 md:grid-cols-[3fr_2fr]" >
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className = "p-6 md:p-8">
-                                <div className = "flex flex-col gap-6 w-full">
+                                <div className = "flex flex-col gap-4 w-full">
                                     <div className= "flex flex-col items-center text-center">
                                         <h1 className="text-xl font-bold">Create Account</h1>
                                         <p className="text-muted-foreground text-balance">
@@ -159,6 +160,15 @@ export const SignUpView = () => {
                                                 GitHub
                                             </Button>
                                         </div>
+                                        <div className= "text-muted-foreground text-[14px] flex flex-col justify-center items-center gap-2">
+                                            <p>
+                                                Already have an account? 
+                                            </p>
+                                            <Link href = "/sign-in" className="text-[12px] w-full">
+                                                <Button className="w-full">Sign-In</Button>
+                                            </Link>
+                                        </div>
+
                                 </div>
                             </form>
                         </Form>
@@ -171,7 +181,15 @@ export const SignUpView = () => {
                         </div>
                     </CardContent>
                 </Card>
+                                        <div className="relative flex justify-center text-xs ">
+                                                <Link  href="" className="bg-background text-[10px] px-2 text-muted-foreground">
+                                                    By clicking Sign Up you are agreeing all the Terms and policies.
+                                                </Link>
+                                        </div>
+
+
             </div>
+            
         
     )
 }
